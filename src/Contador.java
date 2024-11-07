@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 // Exceção personalizada para validação de parâmetros
 class ParametrosInvalidosException extends Exception {
-    // Construtor da exceção que recebe uma mensagem
     public ParametrosInvalidosException(String mensagem) {
-        super(mensagem);  // Chama o construtor da classe Exception passando a mensagem
+        super(mensagem);
     }
 }
 
@@ -15,11 +14,11 @@ public class Contador {
 
         try {
             // Leitura do primeiro parâmetro
-            System.out.println("Digite o primeiro parâmetro");
+            System.out.println("Digite o primeiro parâmetro:");
             int parametroUm = terminal.nextInt();  // Lê o primeiro número inteiro
 
             // Leitura do segundo parâmetro
-            System.out.println("Digite o segundo parâmetro");
+            System.out.println("Digite o segundo parâmetro:");
             int parametroDois = terminal.nextInt();  // Lê o segundo número inteiro
 
             // Chama o método de contagem, passando os dois parâmetros
@@ -34,18 +33,16 @@ public class Contador {
         }
     }
 
-    // Método para contar e imprimir os números incrementados
     static void contar(int parametroUm, int parametroDois) throws ParametrosInvalidosException {
-        // Verifica se o primeiro parâmetro é maior que o segundo
+        // Validar se parametroUm é MAIOR que parametroDois e lançar a exceção
         if (parametroUm > parametroDois) {
-            // Lança a exceção personalizada com uma mensagem de erro
             throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro");
         }
 
-        // Calcula a quantidade de interações (número de elementos a serem impressos)
+        // Calcular a quantidade de iterações
         int contagem = parametroDois - parametroUm;
-
-        // Loop para imprimir os números incrementados
+        
+        // Realizar o for para imprimir os números com base na variável contagem
         for (int i = 1; i <= contagem; i++) {
             System.out.println("Imprimindo o número " + i);
         }
